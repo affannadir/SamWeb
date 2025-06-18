@@ -1,0 +1,20 @@
+{
+  "name": "my-playwright-tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:headed": "npx playwright test --headed",
+    "test:debug": "npx playwright test --debug",
+    "test:staging": "dotenv -e .env.staging -- npx playwright test --headed",
+    "test:clone": "dotenv -e .env.clone -- npx playwright test",
+    "test:prod": "dotenv -e .env.production -- npx playwright test",
+    "auth:setup": "dotenv -e .env.staging -- node auth/setupAuth.js"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.53.0",
+    "dotenv": "^16.5.0",
+    "dotenv-cli": "^8.0.0"
+  }
+}
