@@ -8,7 +8,7 @@ module.exports = {
     expectedResult: '17 Drivers'
   },
   driver: {
-    email: 'affanabdacde@gmail.com',
+    email: 'affannbc@gmail.com',
     firstName: 'Affasdasana',
     lastName: 'AAutdaomation',
     phone: '77324243221',
