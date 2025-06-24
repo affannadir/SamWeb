@@ -13,5 +13,8 @@ module.exports = {
     lastName: 'AAutdaomation',
     phone: '77324243221',
     searchKeyword: 'Demo Driver'
+  },
+  vehicle: {
+    regNum : 'LF21FMR',
   }
 };
