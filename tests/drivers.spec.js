@@ -15,31 +15,31 @@ async function setup(page) {
     return { dashboard, driversPage };
 }
 
-// test('Switch between drivers tabs', async ({ page }) => {
-//     const { driversPage } = await setup(page);
+test('Switch between drivers tabs', async ({ page }) => {
+    const { driversPage } = await setup(page);
 
-//     await driversPage.gotoDriversModule();
+    await driversPage.gotoDriversModule();
 
-//     await driversPage.switchToActiveDrivers();
-//     await expect(page.locator("//p[normalize-space()='Active Drivers']")).toBeVisible();
+    await driversPage.switchToActiveDrivers();
+    await expect(page.locator("//p[normalize-space()='Active Drivers']")).toBeVisible();
 
-//     await driversPage.switchToOnboardingDrivers();
-//     await expect(page.locator("//p[normalize-space()='Onboarding Drivers']")).toBeVisible();
+    await driversPage.switchToOnboardingDrivers();
+    await expect(page.locator("//p[normalize-space()='Onboarding Drivers']")).toBeVisible();
 
-//     await driversPage.switchToInactiveDrivers();
-//     await expect(page.locator("(//p[normalize-space()='Inactive Drivers'])[1]")).toBeVisible();
-// });
+    await driversPage.switchToInactiveDrivers();
+    await expect(page.locator("(//p[normalize-space()='Inactive Drivers'])[1]")).toBeVisible();
+});
 
-// test('Verify the Customer Name filter in Active Drivers', async ({ page }) => {
-//     const { driversPage } = await setup(page);
+test('Verify the Customer Name filter in Active Drivers', async ({ page }) => {
+    const { driversPage } = await setup(page);
 
-//     await driversPage.gotoDriversModule();
-//     await driversPage.filterByCustomer(testData.filters.customer);
-//     await driversPage.verifyFilterApplied(
-//         testData.filters.expectedResult,
-//         testData.filters.customerFilterText
-//     );
-// });
+    await driversPage.gotoDriversModule();
+    await driversPage.filterByCustomer(testData.filters.customer);
+    await driversPage.verifyFilterApplied(
+        testData.filters.expectedResult,
+        testData.filters.customerFilterText
+    );
+});
 
 test('Verify the driver search', async ({ page }) => {
     const { driversPage } = await setup(page);
