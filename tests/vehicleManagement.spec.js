@@ -15,16 +15,34 @@ async function setup(page) {
     return { dashboard, vmsPage };
 }
 
-test.only('Verify Vehicle Creation', async ({page}) => {
+test('Verify Vehicle Creation', async ({ page }) => {
 
     const { vmsPage } = await setup(page);
-    const {regNum } = testData.vehicle;
+    const { regNum } = testData.vehicle;
     await vmsPage.navigateToVMS();
     await vmsPage.addVehicles(regNum);
     await vmsPage.verifyVehicleCreation();
 })
 
-test('Verify Vehicle Deletion', async ({page}) => {
+test('Verify Vehicle Search', async ({ page }) => {
+
+    const { vmsPage } = await setup(page);
+    const { regNum } = testData.vehicle;
+    await vmsPage.navigateToVMS();
+    await vmsPage.vehicleSearch(regNum);
+    await vmsPage.verifyVehicleSearch();
+
+})
+
+test('Verify Vehicle Edit functionality', async ({ page }) => {
+
+    const { vmsPage } = await setup(page);
+    const { regNum } = testData.vehicle;
+    await vmsPage.navigateToVMS();
+
+})
+
+test('Verify Vehicle Deletion', async ({ page }) => {
 
     const { vmsPage } = await setup(page);
     await vmsPage.navigateToVMS();

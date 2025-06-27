@@ -27,6 +27,8 @@ class DriversPage {
     this.roleDD = page.locator("//div[@id='mui-component-select-roleId']"); // after this press enter button then click anywhere outside to close the DD
     this.inviteUserBtn = page.locator('button[type="submit"]');
     this.verifyDriverCreation = page.locator("(//div[contains(text(),'New user added successfully.')])[1]");
+    this.verticalIcon = page.locator('svg[data-testid="MoreVertIcon"]');
+    this.viewDriverProfile = page.locator("//p[normalize-space()='View Driver Profile']");
 
 
   }
@@ -35,6 +37,10 @@ class DriversPage {
     return this.page.locator(`//li[@role='option' and text()='${optionText}']`);
   }
 
+  async getOtpFromDriverProfile() {
+    const otp = await this.page.locator("//p[normalize-space()='OTP']/following-sibling::p[1]").textContent();
+    return otp.trim();
+}
   async createDriver(email, fName, lName, contactNumber) {
 
     await this.addNewDriver.click();
@@ -52,7 +58,15 @@ class DriversPage {
 
   }
 
-  async verifyDriverAdded(){
+  async navigateToCreatedDriverProfile(email) {
+
+    await this.onboardingTab.click();
+    await this.driverSearchField.fill(email);
+    await this.verticalIcon.click();
+    await this.viewDriverProfile.click();
+  }
+
+  async verifyDriverAdded() {
 
     await expect(this.verifyDriverCreation).toBeVisible();
   }

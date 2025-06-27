@@ -19,6 +19,10 @@ class VMS{
         this.vehicleDeletionSuccess = page.locator("//div[contains(text(),'Vehicle deleted successfully')]")
         this.actionButtonforAddedVehicle = page.locator("//p[normalize-space()='LF21FMR']/ancestor::div[contains(@role, 'row')]/div[contains(@data-field, 'actions')]");
         this.deleteVehicleBtn = page.locator("//li[normalize-space()='Delete']");
+        this.searchVehicleField = page.locator('input[placeholder="Search by registration number"]');
+        this.vehicleSearchVerification = page.locator("//p[normalize-space()='LF21FMR']");
+        this.editVehicleBtn = page.locator("//li[normalize-space()='Edit']");
+    
     }
 
     async navigateToVMS(){
@@ -39,6 +43,17 @@ class VMS{
         await expect(this.vehicleCreationSuccess).toBeVisible();
     }
 
+    async vehicleSearch(regNumber){
+
+        await this.searchVehicleField.fill(regNumber);
+    }
+
+    async verifyVehicleSearch(){
+
+        await expect(this.vehicleSearchVerification).toBeVisible();
+    }
+
+
     async deleteVehicle(){
         await this.actionButtonforAddedVehicle.click();
         await this.deleteVehicleBtn.click();
@@ -47,6 +62,12 @@ class VMS{
     async verifyVehicleDeletion(){
 
         await expect(this.vehicleDeletionSuccess).toBeVisible();
+    }
+
+    async editVehicle(){
+
+        await this.actionButtonforAddedVehicle.click();
+        await this.editVehicleBtn.click();
     }
 }
 
