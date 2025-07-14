@@ -29,12 +29,19 @@ class DriversPage {
     this.verifyDriverCreation = page.locator("(//div[contains(text(),'New user added successfully.')])[1]");
     this.verticalIcon = page.locator('svg[data-testid="MoreVertIcon"]');
     this.viewDriverProfile = page.locator("//p[normalize-space()='View Driver Profile']");
+    this.approveBtn = page.locator("(//button[@type='button'][normalize-space()='Approve'])[1]");
 
 
   }
 
   getCustomerOption(optionText) {
     return this.page.locator(`//li[@role='option' and text()='${optionText}']`);
+  }
+
+  async approveDocs(){
+
+    await this.approveBtn.click();
+    await this.approveBtn.click();
   }
 
   async getOtpFromDriverProfile() {

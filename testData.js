@@ -1,4 +1,5 @@
 // testData.js
+const { faker } = require('@faker-js/faker');
 
 module.exports = {
   dspName: 'Ratnam & Co.',
@@ -8,14 +9,14 @@ module.exports = {
     expectedResult: '17 Drivers'
   },
   driver: {
-    email: 'baffghasweweTY@sahytr.com',
-    firstName: 'datyiqw',
-    lastName: 'tfeef',
-    phone: '77611548119',
+    email: faker.internet.email().toLowerCase(),
+    firstName: faker.person.firstName(),
+    lastName: faker.person.lastName(),
+    phone: '07' + faker.string.numeric(9),
     searchKeyword: 'Demo Driver'
   },
   vehicle: {
-    regNum : 'LF21FMR',
+    regNum: 'LF21FMR',
   }
 };
-103768
+105645
